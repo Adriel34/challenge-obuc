@@ -31,13 +31,6 @@ module.exports = {
         },
         onDelete: 'CASCADE'
       },
-       category_id: {
-        type: Sequelize.UUID,
-        allowNull: false,
-        references: {model: 'category', key: 'id'},
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -2,9 +2,13 @@ const Category = require('../category/category.model');
 const Task = require('./task.model');
 
 class TaskRepository {
-    async createTask(data) {
-        return await Task.create(data);
-    }
+  async createTask(data, categoryIds) {
+    const task = await Task.create(data);
+    
+    await task.addCategories(categoryIds);
+    
+    return task;
+  }
 
 
     async getTasksByUser(userId) {

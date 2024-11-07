@@ -41,17 +41,10 @@ class Category extends Model {
   }
 
   static associate(models) {
-    // Associações
     this.belongsToMany(models.Task, {
       through: "category_task",
-      foreignKey: {
-        name: "category_id",
-        type: DataTypes.UUID,
-      },
-      otherKey: {
-        name: "task_id",
-        type: DataTypes.UUID,
-      },
+      foreignKey: "category_id",
+      otherKey: "task_id",
       as: "tasks",
     });
   }

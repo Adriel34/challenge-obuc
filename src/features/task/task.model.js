@@ -26,10 +26,6 @@ class Task extends Model {
           type: DataTypes.UUID,
           allowNull: false,
         },
-        category_id: {
-          type: DataTypes.UUID,
-          allowNull: false,
-        },
         createdAt: {
           type: DataTypes.DATE,
           allowNull: false,
@@ -63,16 +59,10 @@ class Task extends Model {
     });
 
     this.belongsToMany(models.Category, {
-      through: 'category_task',
-      foreignKey: {
-        name: 'task_id',
-        type: DataTypes.UUID,
-      },
-      otherKey: {
-        name: 'category_id',
-        type: DataTypes.UUID,
-      },
-      as: 'categories'
+      through: "category_task",
+      foreignKey: "task_id",
+      otherKey: "category_id",
+      as: "categories",
     });
   }
 }

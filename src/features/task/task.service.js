@@ -6,14 +6,13 @@ class TaskService {
   }
 
   async createTask(data) {
-    const { description, status, assignedTo, user_id, category_id } = data;
+    const { description, status, assignedTo, user_id, categoryIds } = data;
     const task = await this.taskRepository.createTask({
       description,
       status,
       assignedTo,
       user_id,
-      category_id,
-    });
+    }, categoryIds);
     return task;
   }
 
