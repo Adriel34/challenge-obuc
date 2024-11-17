@@ -34,6 +34,21 @@ class TaskRepository {
         return user.destroy();
     }
 
+    async getTaskByCategoryId(categoryId){
+      return Task.findAll({
+        include: [{
+          model: Category,
+          as: 'categories',
+          through: { attributes: [] },
+          where: {
+            id: {
+              [Op.in]: [categoryId],
+            }
+          }
+        }],
+      });
+    }
+
 }
 
 module.exports = TaskRepository;

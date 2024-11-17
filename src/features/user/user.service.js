@@ -17,14 +17,14 @@ class UserService {
 
     const newUser = await this.userRepository.createUser(createData);
     delete newUser.dataValues.password;
-    return newUser;
+    return newUser.dataValues;
   }
 
   async getUserById(id) {
     const userData = await this.userRepository.findUserById(id);
     console.log(id)
-    delete userData.dataValues.password;
     if (!userData) throw new Error("User not found");
+    delete userData.dataValues.password;
     return userData.dataValues;
   }
 

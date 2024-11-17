@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
+    "test": "jest",
     "migrate": "npx sequelize-cli db:migrate",
     "migration:generate": "npx sequelize-cli migration:generate --name",
     "migration:undo": "npx sequelize-cli db:migrate:undo"
@@ -24,6 +25,7 @@
     "sequelize": "^6.37.4"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.1.7",
     "sequelize-cli": "^6.6.2"
   }

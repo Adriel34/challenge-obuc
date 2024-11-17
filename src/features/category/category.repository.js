@@ -22,7 +22,7 @@ class CategoryRepository {
     return task.update(data);
   }
 
-  async deletecategory(id) {
+  async deleteCategory(id) {
     const user = await Category.findByPk(id);
     return user.destroy();
   }

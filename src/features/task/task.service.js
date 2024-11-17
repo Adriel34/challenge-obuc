@@ -17,7 +17,7 @@ class TaskService {
   }
 
   async updateTask(data) {
-    const { id, ...req } = req.body;
+    const { id, ...req } = data.body;
     const updatedTask = await this.taskRepository.updateUser(id, {...req});
     return updatedTask.dataValues;
   }
@@ -25,6 +25,10 @@ class TaskService {
   async getTasksByUser(userId) {
     const tasks = await this.taskRepository.getTasksByUser(userId);
     return tasks;
+  }
+
+  async getTaskByCategoryId(categoryId){
+    return this.getTaskByCategoryId(categoryId)
   }
 
   async deleteTask(id) {
